@@ -1,0 +1,5 @@
+May 27, 2018 11:12:39 PM oracle.soa.common.util.FabricLCMUtil info
+INFO:  INFO : URLExpander load ............. {}
+May 27, 2018 11:12:44 PM oracle.fabric.common.wsdl.SchemaManager isIncrementalBuildSupported
+INFO: XMLSchema incremental build enabled.
+Picked up _JAVA_OPTIONS: -Xmx768m

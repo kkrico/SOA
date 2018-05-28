@@ -1,0 +1,35 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WebService"
+     targetNamespace="http://oracle.com/sca/soapservice/CreditCardValidation/validationForCC/WebService"
+     xmlns:inp2="http://www.globalcompany.com/ns/CCAuthorizationService"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:inp1="http://oracle.com/sca/soapservice/CreditCardValidation/validationForCC/WebService"
+     xmlns:tns="http://oracle.com/sca/soapservice/CreditCardValidation/validationForCC/WebService"
+    >
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://oracle.com/sca/soapservice/CreditCardValidation/validationForCC/WebService"
+             elementFormDefault="qualified">
+            <element name="string" type="string"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.globalcompany.com/ns/CCAuthorizationService" schemaLocation="xsd/creditcheck.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="creditCardNumber" element="inp1:string"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="response" element="inp2:creditcardStatus"/>
+    </wsdl:message>
+    <wsdl:message name="faultMessage">
+        <wsdl:part name="fault" element="inp2:error"/>
+    </wsdl:message>
+    <wsdl:portType name="execute_ptt">
+        <wsdl:operation name="getCreditValidation">
+            <wsdl:input message="inp1:requestMessage"/>
+            <wsdl:output message="inp1:replyMessage"/>
+            <wsdl:fault name="getCreditValidationfault" message="inp1:faultMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>
